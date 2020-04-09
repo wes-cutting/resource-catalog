@@ -61,7 +61,7 @@ const getArticles = () => {
     return iou;
 }
 
-const addArticle = (articles) => {
+const addArticles = (articles) => {
     const iou = new Promise((resolve, reject) => {
         if (!Array.isArray(articles)) {
             reject({ msg: 'Need to send an Array of Articles' });
@@ -77,7 +77,7 @@ const addArticle = (articles) => {
                 reject({
                     msg: 'Some Articles were invalid',
                     data: invalidArticles
-                })
+                });
             }else {
                 MongoClient.connect(url, settings, async function (err, client) {
                     if (err) {
@@ -86,6 +86,9 @@ const addArticle = (articles) => {
                         console.log("Connected successfully to server to POST Articles");
                         const db = client.db(dbName);
                         const collection = db.collection(colName);
+                        articles.forEach((article) => { 
+                            article.dateAdded = new Date(Date.now()).toUTCString(); 
+                        });
                         const results = await collection.insertMany(articles);
                         resolve(results.ops);
                     }
@@ -98,5 +101,5 @@ const addArticle = (articles) => {
 
 module.exports = {
     getArticles, 
-    addArticle
+    addArticles
 }

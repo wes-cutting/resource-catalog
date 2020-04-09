@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { 
     getArticles,
-    addArticle 
+    addArticles 
 } = require('../../data/articles')
 
 /* GET articles listing. */
@@ -20,7 +20,7 @@ router.get('/', async function (req, res, next) {
 router.post('/', async function(req, res, next) {
     try{
         // TODO Handling Request Data and Create Function Call
-        const data = await addArticle(req.body);
+        const data = await addArticles(req.body);
         res.send(data);
     } catch(err){
         if(err.msg){
