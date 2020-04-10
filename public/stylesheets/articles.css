@@ -1,0 +1,35 @@
+main {
+    display: flex;
+    margin-bottom: 5vh;
+}
+#articles{
+    margin-left: 5vw;
+}
+
+#article_form {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+}
+
+#article_form #button {
+    width: 50%;
+    align-self: center;
+}
+
+#msg {
+    color: red;
+}
+
+.delete, .edit{
+    cursor: pointer;
+}
+#delete{
+    color: red;
+    text-emphasis: bold;
+    cursor: pointer;
+}
+
+#desc {
+    height: 60px;
+}

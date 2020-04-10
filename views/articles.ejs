@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= title %></title>
+    
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/articles.css' />
+</head>
+
+<body>
+    <h1><%= title %></h1>
+    <main>
+        <section>
+            <p>Add to <%= title %></p>
+            <form id="article_form">
+                <input id="title" type="text" placeholder="Title" required>
+                <input id="link" type="url" placeholder="https://example.com" pattern="https://.*" required>
+                <input id="author" type="text" placeholder="Author">
+                <input id="topics" type="text" placeholder="Topics: html, javascript, css, etc.">
+                <textarea id="desc" placeholder="Description"></textarea>
+                <input id="button" type="button" value="Add">
+            </form>
+            <div id="msg"></div>
+        </section>
+        <section  id="articles">
+            <p>Here is a list of <%= title %> Resources</p>
+            <ul>
+                <% for(let i = 0; i < articles.length; i++) {%>
+                <li>
+                    <div class="tooltip">
+                        <a href="<%= articles[i].link %>" target="_blank">
+                            <%= articles[i].title %>
+                        </a>
+                        <span class="tooltip-text">
+                            <%= articles[i].desc %>
+                        </span>
+                    </div>
+                    <span class="edit" id="<%= articles[i]._id %>">&#9998;</span>
+                    <span class="delete" id="<%= articles[i]._id %>">&#128465;</span>
+                </li>
+                <% }%>
+            </ul>
+        </section>
+    </main>
+    <!-- The Modals -->
+    <div id="deleteModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Delete Article?</p>
+            <span id="delete">Click here to Delete</span>
+        </div>
+    </div>
+    <div id="updateModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="article_form">
+                <input id="title" type="text" placeholder="Title" required>
+                <input id="link" type="url" placeholder="https://example.com" pattern="https://.*" required>
+                <input id="author" type="text" placeholder="Author">
+                <input id="topics" type="text" placeholder="Topics: html, javascript, css, etc.">
+                <textarea id="desc" placeholder="Description"></textarea>
+                <input id="button" type="button" value="Update">
+            </form>
+        </div>
+    </div>
+    Go <a href='/'>Home</a>
+    <script src='/javascripts/articles.js'></script>
+</body>
+
+</html>
