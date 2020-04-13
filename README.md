@@ -41,3 +41,11 @@ ARTICLE
     "dateAdded": DATE
 }
 ```
+
+### RESOURCES  
+-CSS
+ - [How To Create a Modal Box](https://www.w3schools.com/howto/howto_css_modals.asp)
+ - [CSS Tooltip](https://www.w3schools.com/css/css_tooltip.asp)
+
+-Regex
+ - [Regex Cheatsheet](https://www3.ntu.edu.sg/home/ehchua/programming/howto/Regexe.html#zz-2.2)

@@ -22,7 +22,6 @@ a:hover {
 
 .tooltip .tooltip-text {
   visibility: hidden;
-  width: 30vw;
   background-color: darkslateblue;
   color: white;
   text-align: center;
@@ -32,6 +31,10 @@ a:hover {
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
+  top: -30px;
+  width: 85%;
+  left: 95%;
+  padding: 5px;
 }
 
 .tooltip:hover .tooltip-text {

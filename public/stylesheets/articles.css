@@ -1,7 +1,14 @@
 main {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: 5vh;
 }
+
+input, textarea::placeholder{
+    text-align: center;
+}
+
 #articles{
     margin-left: 5vw;
 }
@@ -9,7 +16,7 @@ main {
 #article_form {
     display: flex;
     flex-direction: column;
-    width: 30vw;
+    width: 24em;
 }
 
 #article_form #button {
